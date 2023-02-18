@@ -9,7 +9,7 @@
 
 A conceptual architecture diagram is a high-level visual representation of the structure and components of a system or application. It typically shows the major components, their relationships, and how they interact with each other. Conceptual architecture diagrams are often used to communicate the overall structure of a system to stakeholders and other interested parties. A conceptual architecture diagram can help stakeholders understand the overall structure of a system and the relationships between its components. It can also serve as a starting point for more detailed design and planning activities.
 
-![Conceptual Architecture](_docs/assets/journal_assets/week0/LucidChart-ConceptualDesign.png)
+![Conceptual Architecture](../_docs/assets/journal_assets/week0/LucidChart-ConceptualDesign.png)
 
 ### Logical Architecture
 
