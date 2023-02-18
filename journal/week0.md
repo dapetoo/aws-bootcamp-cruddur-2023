@@ -71,3 +71,6 @@ I created a budget for my AWS account. I set the budget to $1.00 and the budget 
 ![Budget](journal_assets/week0/Budget-Alert0.png)
 
 ![Budget](journal_assets/week0/AWS-Budget.png)
+
+
+### Challenge 4: IAM User and IAM Role
