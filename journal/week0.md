@@ -1,9 +1,19 @@
 # Week 0 — Billing and Architecture
 
 
-## Conceptual and Logical Architecture
+## Software Architecture Diagrams
 
+**C4 Model** C4 models are a set of software architecture models that provide a way to describe, document, and communicate the architecture of a software system. The C4 model was created by Simon Brown and is based on four levels of abstraction: context, containers, components, and code. The four levels of the C4 model are designed to provide different levels of detail and abstraction for different audiences.
 
+Here's a brief overview of each level of the C4 model:
+
+- Context: The context level provides a high-level view of the system and its environment. It shows the system in relation to other systems, users, and external factors.
+
+- Containers: The container level shows the high-level components of the system and how they interact with each other. It provides a way to group related components and show how they are connected.
+
+- Components: The component level shows the individual components that make up the containers. It provides a way to show the internal structure of the system and how the components interact with each other.
+
+- Code: The code level shows the implementation details of the components. It provides a way to show how the components are implemented and how they are connected to each other.
 
 ### Conceptual Architecture
 
@@ -17,6 +27,24 @@ A logical architecture diagram is a visual representation of the logical compone
 
 ![Logical Architecture](journal_assets/week0/LucidChart-LogicalDesign.png)
 
+The link to the architecture diagram on LucidChart is [LucidChart Link](https://lucid.app/lucidchart/2c0e42fc-d6b4-4a91-9e48-ac652712fcbd/edit?viewport_loc=486%2C-194%2C1424%2C833%2Cd19xGk5ETTT.&invitationId=inv_e7183d1d-c9a4-4673-a2d7-a7e46dfd7211)
 
 
-[LucidChart Link](https://lucid.app/lucidchart/2c0e42fc-d6b4-4a91-9e48-ac652712fcbd/edit?viewport_loc=486%2C-194%2C1424%2C833%2Cd19xGk5ETTT.&invitationId=inv_e7183d1d-c9a4-4673-a2d7-a7e46dfd7211)
+## Homework Challenges
+
+### Challenge 1: Set up AWS CLI on GitPod workspace
+
+I was able to set up AWS CLI on my GitPod workspace. I followed the instructions on the [AWS CLI Documentation](https://docs.aws.amazon.com/cli/latest/userguide/install-cliv2-linux.html#cliv2-linux-install) and was able to install the AWS CLI on my workspace by setting it up as a task to the gitpod.yml file and also did try to set it up on my local. I was able to run the `aws --version` command and got the following output: 
+
+```bash
+curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+unzip awscliv2.zip
+sudo ./aws/install
+```
+
+![AWS CLI](journal_assets/week0/AWS-CLI.png)
+
+
+
+
+```
