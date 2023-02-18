@@ -1,3 +1,11 @@
+tasks:
+  - name: Install AWS CLI tool and setup tab completion
+    init: |
+      sudo apt-get update
+      sudo apt-get install -y awscli
+      aws --version
+      complete -C '/usr/bin/aws_completer' aws
+
 
 vscode:
   extensions:
