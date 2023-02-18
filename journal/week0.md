@@ -79,6 +79,11 @@ AWS IAM (Identity and Access Management) is a service for managing access to AWS
 
 IAM is a critical component of AWS security and access control. It helps you to enforce the principle of **least privilege**, meaning that you *grant the minimum level of access necessary to perform a specific task*. By using IAM, you can also set up multi-factor authentication (MFA) for your users to increase the security of their access credentials. IAM supports a variety of authentication mechanisms, including AWS Management Console, AWS Command Line Interface (CLI), and programmatic access through APIs. You can also integrate IAM with other AWS services such as Amazon S3, Amazon EC2, and Amazon RDS, to control access to resources. Overall, IAM is an essential tool for managing access to AWS resources and maintaining the security of your AWS environment.
 
+- **IAM User**
+- **IAM Role**
+- **IAM Policy**
+- **IAM Group**
+
 
 ### **AWS CloudTrail**
 
@@ -87,3 +92,5 @@ AWS CloudTrail is a service provided by Amazon Web Services (AWS) that enables g
 CloudTrail provides visibility into user activity and resource changes across an AWS account, allowing organizations to ensure compliance with internal policies and external regulations. It also helps to detect and investigate security incidents and unauthorized access to resources by providing an audit trail of events.
 
 In addition to recording API events, CloudTrail can be used to deliver log files to Amazon S3 buckets or Amazon CloudWatch Logs for analysis and storage. It can also be integrated with AWS services like AWS Config and AWS Security Hub for automated security and compliance analysis.
+
+![CloudTrail](journal_assets/week0/AWS-CloudTrail.png)
