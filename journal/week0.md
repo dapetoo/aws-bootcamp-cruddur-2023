@@ -53,15 +53,15 @@ Billing metric for AWS accounts are stored in US East 1 region (North Carolina) 
 - Enable billing alerts for your AWS account from Billing Prefereces page
 - Create a Billing Alarm from CloudWatch console, create Alarm, select Billing metric, select the threshold, and under notification create an SNS topic and add your email address. configure the alarm to send the notification to your email address, accept the SNS topic request from your email.
 
-![Billing Alarm](journal_assets/week0/Billing-Alarm.png)
+![Billing Alarm](journal_assets/week0/BillingAlarm.png)
 
-![Billing Alarm](journal_assets/week0/Billing-Alarm2.png)
+![Billing Alarm](journal_assets/week0/BillingAlarm2.png)
 
-![Billing Alarm](journal_assets/week0/Billing-Alarm3.png)
+![Billing Alarm](journal_assets/week0/BillingAlarm3.png)
 
-![Billing Alarm](journal_assets/week0/Billing-Alarm4.png)
+![Billing Alarm](journal_assets/week0/BillingAlarm4.png)
 
-![Billing Alarm](journal_assets/week0/Billing-Alarm6.png)
+![Billing Alarm](journal_assets/week0/BillingAlarm6.png)
 
 
 ### Challenge 3: Create a AWS  Budget
