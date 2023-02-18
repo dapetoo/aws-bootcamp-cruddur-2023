@@ -44,7 +44,30 @@ sudo ./aws/install
 
 ![AWS CLI](journal_assets/week0/AWS-CLI.png)
 
+### Challenge 2: Creating a billing alarm to monitor your estimated AWS charges
+
+Billing metric for AWS accounts are stored in US East 1 region (North Carolina) and this represents all usage across AWS regions. The allarm will be trigger when the current billing exceeds the threshold of $1.00. The alarm will be sent to my email address.
+
+**Stesps for creating the billing alarm:**
+
+- Enable billing alerts for your AWS account from Billing Prefereces page
+- Create a Billing Alarm from CloudWatch console, create Alarm, select Billing metric, select the threshold, and under notification create an SNS topic and add your email address. configure the alarm to send the notification to your email address, accept the SNS topic request from your email.
+
+![Billing Alarm](journal_assets/week0/Billing-Alarm.png)
+
+![Billing Alarm](journal_assets/week0/Billing-Alarm2.png)
+
+![Billing Alarm](journal_assets/week0/Billing-Alarm3.png)
+
+![Billing Alarm](journal_assets/week0/Billing-Alarm4.png)
+
+![Billing Alarm](journal_assets/week0/Billing-Alarm6.png)
 
 
+### Challenge 3: Create a AWS  Budget
 
-```
+I created a budget for my AWS account. I set the budget to $1.00 and the budget will be sent to my email address. I also set the budget to send a notification when the budget is 75% of the threshold.
+
+![Budget](journal_assets/week0/Budget-Alert0.png)
+
+![Budget](journal_assets/week0/AWS-Budget.png)
