@@ -17,7 +17,7 @@ A conceptual architecture diagram is a high-level visual representation of the s
 
 A logical architecture diagram is a visual representation of the logical components, data flows, and interactions of a system or application. It focuses on the functional components of the system rather than the physical components. A logical architecture diagram is used to describe the structure and behavior of a system or application and is typically created during the early stages of system design.
 
-![Logical Architecture](journal/journal_assets/week0/LucidChart-LogicalDesign.png)
+![Logical Architecture](journal_assets/week0/LucidChart-LogicalDesign.png)
 
 
 
