@@ -102,8 +102,13 @@ Set the permissions for the user. You can either attach existing policies to the
 
 Review the configuration, and then click "Create user" to create the user.
 
+![AWS IAM User](journal_assets/week0/AWS-IAM-User.png)
 
+![AWS IAM User](journal_assets/week0/AWS-IAM-User.png)
 
+![AWS IAM User](journal_assets/week0/AWS-IAM-User3.png)
+
+![AWS IAM User](journal_assets/week0/AWS-IAM-User4.png)
 
 - **IAM Role** is an AWS identity that you can create and manage to enable access to AWS resources. ***Unlike an IAM user, which is associated with a specific person or application and has permanent security credentials, an IAM role is intended to be assumed by another AWS identity, such as an IAM user, an EC2 instance, or an AWS service.*** IAM role is a way to grant temporary access to AWS resources to another AWS identity, such as an IAM user, an EC2 instance, or an AWS service, while also limiting the amount of access that entity has to the resources.
 
