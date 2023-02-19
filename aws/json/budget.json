@@ -1,0 +1,114 @@
+{
+    "AccountId": "string",
+    "Budget": { 
+       "AutoAdjustData": { 
+          "AutoAdjustType": "string",
+          "HistoricalOptions": { 
+             "BudgetAdjustmentPeriod": number,
+             "LookBackAvailablePeriods": number
+          },
+          "LastAutoAdjustTime": number
+       },
+       "BudgetLimit": { 
+          "Amount": "string",
+          "Unit": "string"
+       },
+       "BudgetName": "string",
+       "BudgetType": "string",
+       "CalculatedSpend": { 
+          "ActualSpend": { 
+             "Amount": "string",
+             "Unit": "string"
+          },
+          "ForecastedSpend": { 
+             "Amount": "string",
+             "Unit": "string"
+          }
+       },
+       "CostFilters": { 
+          "string" : [ "string" ]
+       },
+       "CostTypes": { 
+          "IncludeCredit": boolean,
+          "IncludeDiscount": boolean,
+          "IncludeOtherSubscription": boolean,
+          "IncludeRecurring": boolean,
+          "IncludeRefund": boolean,
+          "IncludeSubscription": boolean,
+          "IncludeSupport": boolean,
+          "IncludeTax": boolean,
+          "IncludeUpfront": boolean,
+          "UseAmortized": boolean,
+          "UseBlended": boolean
+       },
+       "LastUpdatedTime": number,
+       "PlannedBudgetLimits": { 
+          "string" : { 
+             "Amount": "string",
+             "Unit": "string"
+          }
+       },
+       "TimePeriod": { 
+          "End": number,
+          "Start": number
+       },
+       "TimeUnit": "string"
+    },
+    "NotificationsWithSubscribers": [ 
+       { 
+          "Notification": { 
+             "ComparisonOperator": "string",
+             "NotificationState": "string",
+             "NotificationType": "string",
+             "Threshold": number,
+             "ThresholdType": "string"
+          },
+          "Subscribers": [ 
+             { 
+                "Address": "string",
+                "SubscriptionType": "string"
+             }
+          ]
+       }
+    ]
+ }
+
+
+
+{
+    "BudgetLimit": {
+        "Amount": "100",
+        "Unit": "USD"
+    },
+    "BudgetName": "Example Tag Budget",
+    "BudgetType": "COST",
+    "CostFilters": {
+        "TagKeyValue": [
+            "user:Key$value1",
+            "user:Key$value2"
+        ]
+    },
+    "CostTypes": {
+        "IncludeCredit": true,
+        "IncludeDiscount": true,
+        "IncludeOtherSubscription": true,
+        "IncludeRecurring": true,
+        "IncludeRefund": true,
+        "IncludeSubscription": true,
+        "IncludeSupport": true,
+        "IncludeTax": true,
+        "IncludeUpfront": true,
+        "UseBlended": false
+    },
+    "TimePeriod": {
+        "Start": 1477958399,
+        "End": 3706473600
+    },
+    "Notification": {
+        "Threshold": 80,
+        "ComparisonOperator": "GREATER_THAN",
+        "NotificationType": "EMAIL",
+        "SubscriberEmailAddresses": ["dapetoo@gmail.com"]
+      },
+    "TimeUnit": "MONTHLY"
+  }

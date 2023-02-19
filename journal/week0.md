@@ -66,12 +66,23 @@ Billing metric for AWS accounts are stored in US East 1 region (North Carolina) 
 
 ### **Challenge 3: Create a AWS  Budget**
 
+**AWS Budgets** is a service that allows you to set custom cost and usage budgets for your AWS account. With AWS Budgets, you can create personalized budgets to track your AWS costs and usage in real-time, monitor and receive alerts when you exceed your budget, and take action to reduce your costs.
+
 I created a budget for my AWS account. I set the budget to $1.00 and the budget will be sent to my email address. I also set the budget to send a notification when the budget is 75% of the threshold.
 
 ![Budget](journal_assets/week0/Budget-Alert0.png)
 
 ![Budget](journal_assets/week0/AWS-Budget.png)
 
+#### **Using AWS CLI to create a budget**
+
+This budget.json file sets up a budget named "My Budget" with a limit of $10 USD per month. The budget is filtered by service in North Virginia Region. The budget type is COST and the time unit is MONTHLY, with a time period from January 1, 2023 to December 31, 2023. The budget also includes a notification that will be sent when the actual costs exceed 80% of the budget limit. The notification type is email, and the email addresses of the subscribers are listed in the SubscriberEmailAddresses field.
+
+![Budget](journal_assets/week0/AWS-Budget-JSON.png)
+
+```bash
+aws budgets create-budget --cli-input-json file://path/to/budget.json
+```
 
 ### **Challenge 4: IAM User and IAM Role**
 
