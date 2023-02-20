@@ -126,3 +126,12 @@ CloudTrail provides visibility into user activity and resource changes across an
 In addition to recording API events, CloudTrail can be used to deliver log files to Amazon S3 buckets or Amazon CloudWatch Logs for analysis and storage. It can also be integrated with AWS services like AWS Config and AWS Security Hub for automated security and compliance analysis.
 
 ![CloudTrail](journal_assets/week0/AWS-CloudTrail.png)
+
+
+### **AWS EventBridge**
+
+Amazon EventBridge is a serverless event bus service provided by Amazon Web Services (AWS). It enables you to build event-driven applications by processing data from a variety of sources and routing them to one or more targets, such as AWS Lambda, Amazon SNS, AWS Step Functions, or custom applications. EventBridge can help you build scalable, flexible, and cost-effective event-driven applications that can respond quickly to changes in your data.
+
+**AWS Health Dashboard** is a service that provides real-time visibility into the status of AWS services and resources. It provides a personalized view of your AWS resource health based on the AWS services you are currently using. The dashboard also provides guidance to help you diagnose and resolve issues with your resources.
+
+![Health Dashboard](journal_assets/week0/AWS-Health-Dashboard.png)
