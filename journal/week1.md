@@ -63,3 +63,17 @@ services:
       retries: 5
   ...
 ```
+
+## Dockerfile Best Practices
+- Exclude unnecessary files from the image by using .dockerignore file
+- Using multi-stage builds to reduce the size of the image
+- Don't install uneccessary packages not needed by the application, it can be installed for dev environment where there is a need to debug but not production enviroment.
+- Decouple the applications, each ccontatiner should have one responsibility and not running multiple services in one container.
+
+## Security Best Practices for Docker
+- Use the right base image for the Dockerfile
+- Always scan docker images for vulnerabilities
+- Don't store sensitive data in a container
+- Each container should have only one responsibility
+- Use multi-stage build to create optimized Dockerfiles
+- For critical applications, use a trusted registry
