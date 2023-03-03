@@ -28,8 +28,14 @@ npm install
 npm run
 
 #Build Frontend Dockerfile
-docker build -t frontend  frontend-react-js .
+docker build -t cruddur-frontend:v1 .
+#Push to DockerHub
+docker tag cruddur-frontend:v1 dapetoo/cruddur-frontend:v1
+docker push dapetoo/cruddur-frontend:v1
 
-#Running Frontend Dockerfile
-docker run -it --rm -v $(pwd):/app -w /app python:3.7-slim python3 /app/script.py
+#Build and Tag Backend Dockerfile
+docker build -t cruddur-backend:v1 .
+docker tag cruddur-backend:v1 dapetoo/cruddur-backend:v1
+docker push dapetoo/cruddur-backend:v1
+
 ```
