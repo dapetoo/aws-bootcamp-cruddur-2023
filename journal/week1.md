@@ -77,3 +77,55 @@ services:
 - Each container should have only one responsibility
 - Use multi-stage build to create optimized Dockerfiles
 - For critical applications, use a trusted registry
+
+
+## Installing Docker on Linux
+- Download Docker Desktop for Mac using the official download link
+- Double click the downloaded docker.dmg file to install it
+- Click on Launchpad to open Docker Desktop
+
+
+Installing Docker Engine on Ubuntu
+- Update the apt package index and install packages to allow apt to use a repository over HTTPS
+```bash
+sudo apt-get update
+sudo apt-get install \
+    ca-certificates \
+    curl \
+    gnupg \
+    lsb-release
+```
+
+- Add Docker’s official GPG key
+```bash
+sudo mkdir -m 0755 -p /etc/apt/keyrings
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
+```
+
+- Use the following command to set up the stable repository
+```bash
+echo \
+  "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu \
+  $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+```
+
+- Update the apt package index, and install the latest version of Docker Engine and containerd
+```bash
+sudo apt-get update
+sudo apt-get install docker-ce docker-ce-cli containerd.io
+```
+
+- Verify that Docker Engine is installed correctly by running the hello-world image
+```bash
+sudo docker run hello-world
+```
+
+- Add user to Docker group to run docker command without sudo
+```bash
+sudo usermod -aG docker $USER
+```
+
+
+
+
+- 
