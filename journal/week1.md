@@ -39,3 +39,27 @@ docker tag cruddur-backend:v1 dapetoo/cruddur-backend:v1
 docker push dapetoo/cruddur-backend:v1
 
 ```
+
+### Implement Health Check 
+
+```docker-compose
+version: "3.8"
+services:
+  backend-flask:
+  ...
+    depends_on:
+      db:
+        condition: service_healthy
+  ...
+  
+  db:
+  ...   
+    image: postgres:13-alpine
+    #Implement HealthCheck on PostgreSQL DB
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+  ...
+```
