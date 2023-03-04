@@ -1,12 +1,13 @@
 # Week 1 — App Containerization
 
-## Working with DynamoTable
-aws dynamodb list-tables --endpoint-url http://localhost:8000
+This week I learnt about App containerization with Docker and Docker Compose. I also learnt about Dockerfile best practices and security best practices for Docker.
 
-aws dynamodb create-table     --table-name Music     --attribute-definitions         AttributeName=Artist,AttributeType=S         AttributeName=SongTitle,AttributeType=S     --key-schema         AttributeName=Artist,KeyType=HASH         AttributeName=SongTitle,KeyType=RANGE     --provisioned-throughput         ReadCapacityUnits=10,WriteCapacityUnits=5 --endpoint-url http://localhost:8000
-
-aws dynamodb describe-table --table-name Music --endpoint-url http://localhost:8000
-
+- Push and pull images to DockerHub and how to install Docker on Linux.
+- Implement Health Checks in Docker Compose file for Postgres DB, Backend app to make sure they are in healthy and running state before starting the services that depends on them.
+- Implement multi-build stage of Dockerfile to optimize and reduce image size
+- Install Docker Desktop on Mac and Docker Engine on Ubuntu
+- Run the project outside of CDE
+- Scanned Docker images for vulnerabilities using snyk
 
 ## Homework Challenges
 
@@ -123,9 +124,5 @@ sudo docker run hello-world
 - Add user to Docker group to run docker command without sudo
 ```bash
 sudo usermod -aG docker $USER
+sudo newgrp docker
 ```
-
-
-
-
-- 
