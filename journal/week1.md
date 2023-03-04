@@ -19,29 +19,45 @@ export FRONTEND_URL="*"
 export BACKEND_URL="*"
 
 #Run Backend App
+```bash
+!/bin/bash
 cd backend-flask
 pip install -r requirements.txt
 python3 -m flask run --host=0.0.0.0 --port=4567
+```
 
 #Run Frontend App
+```bash
+!/bin/bash
 cd frontend-react-js
 npm install
 npm run
-
-#Build Frontend Dockerfile
-docker build -t cruddur-frontend:v1 .
-#Push to DockerHub
-docker tag cruddur-frontend:v1 dapetoo/cruddur-frontend:v1
-docker push dapetoo/cruddur-frontend:v1
-
-#Build and Tag Backend Dockerfile
-docker build -t cruddur-backend:v1 .
-docker tag cruddur-backend:v1 dapetoo/cruddur-backend:v1
-docker push dapetoo/cruddur-backend:v1
-
 ```
 
-### Implement Health Check 
+## Build Frontend Dockerfile
+
+Build, tag and push the frontend, backend docker image to DockerHub
+
+```bash
+cd frontend-react-js
+# Build the image
+docker build -t cruddur-frontend:v1 .
+#Tag the image
+docker tag cruddur-frontend:v1 dapetoo/cruddur-frontend:v1
+# Push to DockerHub
+docker push dapetoo/cruddur-frontend:v1
+
+# Build the image
+docker build -t cruddur-backend:v1 .
+#Tag the image
+docker tag cruddur-backend:v1 dapetoo/cruddur-backend:v1
+# Push to DockerHub
+docker push dapetoo/cruddur-backend:v1
+```
+
+### Implement Health Checks in Docker Compose file 
+
+Health Check is a way of checking the health of some resource. it is a command used to determine the health of a running container. When a health check command is specified, it tells Docker how to test the container to see if it's working.
 
 ```docker-compose
 version: "3.8"
@@ -66,12 +82,14 @@ services:
 ```
 
 ## Dockerfile Best Practices
+
 - Exclude unnecessary files from the image by using .dockerignore file
 - Using multi-stage builds to reduce the size of the image
 - Don't install uneccessary packages not needed by the application, it can be installed for dev environment where there is a need to debug but not production enviroment.
 - Decouple the applications, each ccontatiner should have one responsibility and not running multiple services in one container.
 
 ## Security Best Practices for Docker
+
 - Use the right base image for the Dockerfile
 - Always scan docker images for vulnerabilities
 - Don't store sensitive data in a container
@@ -79,15 +97,16 @@ services:
 - Use multi-stage build to create optimized Dockerfiles
 - For critical applications, use a trusted registry
 
-
 ## Installing Docker on Linux
+
 - Download Docker Desktop for Mac using the official download link
 - Double click the downloaded docker.dmg file to install it
 - Click on Launchpad to open Docker Desktop
 
-
 Installing Docker Engine on Ubuntu
+
 - Update the apt package index and install packages to allow apt to use a repository over HTTPS
+
 ```bash
 sudo apt-get update
 sudo apt-get install \
@@ -98,12 +117,14 @@ sudo apt-get install \
 ```
 
 - Add Docker’s official GPG key
+
 ```bash
 sudo mkdir -m 0755 -p /etc/apt/keyrings
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
 ```
 
 - Use the following command to set up the stable repository
+
 ```bash
 echo \
   "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu \
@@ -111,17 +132,20 @@ echo \
 ```
 
 - Update the apt package index, and install the latest version of Docker Engine and containerd
+
 ```bash
 sudo apt-get update
 sudo apt-get install docker-ce docker-ce-cli containerd.io
 ```
 
 - Verify that Docker Engine is installed correctly by running the hello-world image
+
 ```bash
 sudo docker run hello-world
 ```
 
 - Add user to Docker group to run docker command without sudo
+
 ```bash
 sudo usermod -aG docker $USER
 sudo newgrp docker
