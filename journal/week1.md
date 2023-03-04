@@ -198,6 +198,3 @@ sudo newgrp docker
 
 ![DockerPush](journal_assets/week1/EC2Docker-nginx.png)
 
-![DockerPush](journal_assets/week1/EC2Docker-nginx.png)
-
-![DockerPush](journal_assets/week1/EC2Docker-nginx.png)
