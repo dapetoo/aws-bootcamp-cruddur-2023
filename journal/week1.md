@@ -24,7 +24,6 @@ export BACKEND_URL="*"
 cd backend-flask
 pip install -r requirements.txt
 python3 -m flask run --host=0.0.0.0 --port=4567
-```
 
 #Run Frontend App
 ```bash
@@ -55,7 +54,15 @@ docker tag cruddur-backend:v1 dapetoo/cruddur-backend:v1
 docker push dapetoo/cruddur-backend:v1
 ```
 
-### Implement Health Checks in Docker Compose file 
+![DockerPush](journal_assets/week1/DockerPush01.png)
+
+![DockerPush](journal_assets/week1/DockerPush02.png)
+
+![DockerHub](journal_assets/week1/DockerHub01.png)
+
+![DockerHub](journal_assets/week1/DockerMultiBuildStage02.png)
+
+### Implement Health Checks in Docker Compose file
 
 Health Check is a way of checking the health of some resource. it is a command used to determine the health of a running container. When a health check command is specified, it tells Docker how to test the container to see if it's working.
 
@@ -81,6 +88,32 @@ services:
   ...
 ```
 
+![Conceptual Architecture](journal_assets/week1/HealthCheck01.png)
+
+![Conceptual Architecture](journal_assets/week1/HealthCheck02.png)
+
+![Conceptual Architecture](journal_assets/week1/HealthCheckDB.png)
+
+### Implement multi-build stage of Dockerfile to optimize and reduce image size
+
+```dockerfile
+FROM node:16.18 as builder
+
+ENV PORT=80
+WORKDIR /frontend-react-js
+COPY package.json /frontend-react-js
+RUN npm install
+COPY . /frontend-react-js/
+RUN npm run build
+
+#Production Environment
+FROM nginx:1.23.3-alpine
+COPY --from=builder /frontend-react-js/build /usr/share/nginx/html
+EXPOSE ${PORT}
+# CMD ["npm", "start"]
+ENTRYPOINT [ "nginx", "-g", "daemon off;" ]
+```
+
 ## Dockerfile Best Practices
 
 - Exclude unnecessary files from the image by using .dockerignore file
@@ -97,13 +130,25 @@ services:
 - Use multi-stage build to create optimized Dockerfiles
 - For critical applications, use a trusted registry
 
-## Installing Docker on Linux
+![DockerSecurity](journal_assets/week1/DockerImagesScan-Backend.png)
+
+![DockerSecurity](journal_assets/week1/HealthCheck02.png)
+
+![DockerSecurity](journal_assets/week1/DockerImagesScan-Frontend.png)
+
+### Installing Docker on Linux
 
 - Download Docker Desktop for Mac using the official download link
 - Double click the downloaded docker.dmg file to install it
 - Click on Launchpad to open Docker Desktop
 
-Installing Docker Engine on Ubuntu
+![DockerPush](journal_assets/week1/DockerVersionMac.png)
+
+![DockerPush](journal_assets/week1/DockerLocally.png)
+
+![DockerPush](journal_assets/week1/DockerLocalContainers.png)
+
+### Installing Docker Engine on Ubuntu**
 
 - Update the apt package index and install packages to allow apt to use a repository over HTTPS
 
@@ -150,3 +195,9 @@ sudo docker run hello-world
 sudo usermod -aG docker $USER
 sudo newgrp docker
 ```
+
+![DockerPush](journal_assets/week1/EC2Docker-nginx.png)
+
+![DockerPush](journal_assets/week1/EC2Docker-nginx.png)
+
+![DockerPush](journal_assets/week1/EC2Docker-nginx.png)
