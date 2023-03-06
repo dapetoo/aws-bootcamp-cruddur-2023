@@ -33,16 +33,13 @@ tracer = trace.get_tracer(__name__)
 from aws_xray_sdk.core import xray_recorder
 from aws_xray_sdk.ext.flask.middleware import XRayMiddleware
 
-xray_url = os.getenv("AWS_XRAY_URL")
-xray_recorder.configure(service='Cruddur', dynamic_naming=xray_url)
-XRayMiddleware(app, xray_recorder)
-
-
 app = Flask(__name__)
 
 #Honeycomb
 FlaskInstrumentor().instrument_app(app)
 RequestsInstrumentor().instrument()
+
+#X-Ray SDK Instrumentation
 
 frontend = os.getenv('FRONTEND_URL')
 backend = os.getenv('BACKEND_URL')
