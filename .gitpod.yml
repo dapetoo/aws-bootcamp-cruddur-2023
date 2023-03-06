@@ -18,6 +18,11 @@ tasks:
       sudo apt install -y apt-utils postgresql-client-13 libpq-dev
       cd $THEIA_WORKSPACE_ROOT
 
+  - name: frontend
+    init: |
+      cd frontend-react-js
+      npm i
+
 
 vscode:
   extensions:

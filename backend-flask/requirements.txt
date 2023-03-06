@@ -13,3 +13,6 @@ aws-xray-sdk
 #CloudWatch Logs
 watchtower
 
+blinker
+rollbar
+
