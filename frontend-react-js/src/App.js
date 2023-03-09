@@ -16,6 +16,27 @@ import {
   RouterProvider
 } from "react-router-dom";
 
+// Honeycomb
+import { XMLHttpRequestInstrumentation } from '@opentelemetry/instrumentation-xml-http-request';
+import { FetchInstrumentation } from '@opentelemetry/instrumentation-fetch';
+import { registerInstrumentations } from '@opentelemetry/instrumentation';
+
+registerInstrumentations({
+  instrumentations: [
+    new XMLHttpRequestInstrumentation({
+      propagateTraceHeaderCorsUrls: [
+         /.+/g, //Regex to match your backend urls. This should be updated.
+      ]
+    }),
+    new FetchInstrumentation({
+      propagateTraceHeaderCorsUrls: [
+         /.+/g, //Regex to match your backend urls. This should be updated.
+      ]
+    }),
+  ],
+});
+
+
 const router = createBrowserRouter([
   {
     path: "/",
