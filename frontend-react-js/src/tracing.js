@@ -13,7 +13,12 @@ import { FetchInstrumentation } from '@opentelemetry/instrumentation-fetch';
 const { getWebAutoInstrumentations } = require('@opentelemetry/auto-instrumentations-web');
 
 const exporter = new OTLPTraceExporter({
-  url: 'https://api.honeycomb.io:443/v1/traces'
+  url: 'https://api.honeycomb.io/v1/traces',
+  concurrencyLimit: 10,
+  headers: {
+    'Content-Type': 'application/json',
+    'x-honeycomb-team': '',
+  }
 });
 const provider = new WebTracerProvider({
   resource: new Resource({
