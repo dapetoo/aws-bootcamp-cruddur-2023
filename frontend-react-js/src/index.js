@@ -3,15 +3,17 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import TraceProvider from './tracing';
 
 const el_main = document.getElementsByTagName('main')[0];
 const root = ReactDOM.createRoot(el_main);
 root.render(
   <React.StrictMode>
-    <App />
-  </React.StrictMode>
+    <TraceProvider>
+      <App />
+    </TraceProvider>
+  </React.StrictMode>,
 );
-
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
