@@ -12,6 +12,13 @@ import ReplyForm from '../components/ReplyForm';
 // [TODO] Authenication
 import Cookies from 'js-cookie'
 
+const api = require("@opentelemetry/api");
+function handleUser(user) {
+ let activeSpan = api.trace.getSpan(api.context.active());
+ activeSpan.setAttribute("user_id", user.getId());
+}
+
+
 export default function HomeFeedPage() {
   const [activities, setActivities] = React.useState([]);
   const [popped, setPopped] = React.useState(false);
@@ -22,6 +29,7 @@ export default function HomeFeedPage() {
 
   const loadData = async () => {
     try {
+      handleUser(user);
       const backend_url = `${process.env.REACT_APP_BACKEND_URL}/api/activities/home`
       const res = await fetch(backend_url, {
         method: "GET"

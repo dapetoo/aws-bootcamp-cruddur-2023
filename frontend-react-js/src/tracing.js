@@ -9,8 +9,28 @@ import { UserInteractionInstrumentation } from '@opentelemetry/instrumentation-u
 import { registerInstrumentations } from '@opentelemetry/instrumentation';
 import { XMLHttpRequestInstrumentation } from '@opentelemetry/instrumentation-xml-http-request';
 import { FetchInstrumentation } from '@opentelemetry/instrumentation-fetch';
+import { DocumentLoad } from '@opentelemetry/plugin-document-load';
 
 const { getWebAutoInstrumentations } = require('@opentelemetry/auto-instrumentations-web');
+
+// const HONEYCOMB_DATASET = '<DATA_SET>';
+// const HONEYCOMB_TEAM = '<API_KEY>';
+// const HONEYCOMB_URL = `https://api.honeycomb.io:443/v1/traces/`;
+
+// const exporter = new OTLPTraceExporter({
+//   url: HONEYCOMB_URL,
+//   headers: {
+//     'X-Honeycomb-Team': HONEYCOMB_TEAM,
+//     'X-Honeycomb-Dataset': HONEYCOMB_DATASET,
+//   },
+// });
+
+// const api = require("@opentelemetry/api");
+// function handleUser(user) {
+//  let activeSpan = api.trace.getSpan(api.context.active());
+//  activeSpan.setAttribute("user_id", user.getId());
+// }
+
 
 const exporter = new OTLPTraceExporter({
   url: 'https://api.honeycomb.io/v1/traces',
@@ -65,11 +85,36 @@ registerInstrumentations({
     }),
   ],
  });
+
+ registerInstrumentations({
+  instrumentations: [
+    getWebAutoInstrumentations({
+      // load custom configuration for xml-http-request instrumentation
+      '@opentelemetry/instrumentation-xml-http-request': {
+        propagateTraceHeaderCorsUrls: [
+            /.+/g,
+          ],
+      },
+      // load custom configuration for fetch instrumentation
+      '@opentelemetry/instrumentation-fetch': {
+        propagateTraceHeaderCorsUrls: [
+            /.+/g,
+          ],
+      },
+    }),
+  ],
+ });
  
 
 registerInstrumentations({
   instrumentations: [
     new DocumentLoadInstrumentation(),
+  ],
+});
+
+registerInstrumentations({
+  instrumentations: [
+    new DocumentLoad(),
   ],
 });
 
