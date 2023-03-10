@@ -16,17 +16,22 @@
 				"vscodevim.vim"
 			],
 			"settings": {
-				"terminal.integrated.fontSize": 20,
-				"editor.fontSize": 20,
+				"terminal.integrated.fontSize": 14,
+				"editor.fontSize": 14,
 				"workbench.colorTheme": "Default Dark+ Experimental"
 			}
 		}
 		
 
 
-	}
+	},
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
 	// "forwardPorts": [],
+	"forwardPorts": [3000, 4567, 2000],
+	"postCreateCommand": [
+		"cd ${workspaceFolder}/frontend-react-js && npm install",
+		"cd ${workspaceFolder}/backend-flask && pip install -r requirements.txt"
+	]
 
 	// Configure tool-specific properties.
 	// "customizations": {},
