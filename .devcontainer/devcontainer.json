@@ -28,7 +28,7 @@
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
 	// "forwardPorts": [],
 	"forwardPorts": [3000, 4567, 2000],
-	"postCreateCommand": [
+	"postStartCommand": [
 		"cd ${workspaceFolder}/frontend-react-js && npm install",
 		"cd ${workspaceFolder}/backend-flask && pip install -r requirements.txt"
 	]
