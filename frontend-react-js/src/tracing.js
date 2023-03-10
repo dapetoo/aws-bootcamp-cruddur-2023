@@ -9,7 +9,6 @@ import { UserInteractionInstrumentation } from '@opentelemetry/instrumentation-u
 import { registerInstrumentations } from '@opentelemetry/instrumentation';
 import { XMLHttpRequestInstrumentation } from '@opentelemetry/instrumentation-xml-http-request';
 import { FetchInstrumentation } from '@opentelemetry/instrumentation-fetch';
-import { DocumentLoad } from '@opentelemetry/plugin-document-load';
 
 const { getWebAutoInstrumentations } = require('@opentelemetry/auto-instrumentations-web');
 
@@ -38,8 +37,10 @@ const exporter = new OTLPTraceExporter({
   headers: {
     'Content-Type': 'application/json',
     'x-honeycomb-team': '',
+    'X-honeycomb-dataset': 'Cruddur-Browser',
   }
 });
+
 const provider = new WebTracerProvider({
   resource: new Resource({
     [SemanticResourceAttributes.SERVICE_NAME]: 'browser',
@@ -109,12 +110,6 @@ registerInstrumentations({
 registerInstrumentations({
   instrumentations: [
     new DocumentLoadInstrumentation(),
-  ],
-});
-
-registerInstrumentations({
-  instrumentations: [
-    new DocumentLoad(),
   ],
 });
 
