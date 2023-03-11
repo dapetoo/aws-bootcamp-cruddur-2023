@@ -10,12 +10,27 @@ import MessageGroupsPage from './pages/MessageGroupsPage';
 import MessageGroupPage from './pages/MessageGroupPage';
 import ConfirmationPage from './pages/ConfirmationPage';
 import React from 'react';
-import process from 'process';
+import { Provider, ErrorBoundary } from '@rollbar/react'; // <-- Provider imports 'rollbar' for us
+
 import {
   createBrowserRouter,
   RouterProvider
 } from "react-router-dom";
 
+const rollbarConfig = {
+  accessToken: 'f61f07bbbfde49bfbf213ace802bceb5',
+  environment: 'production',
+  server: {
+    root: "http://example.com/",
+    branch: "main"
+    },
+    code_version: "0.13.7",
+    person: {
+      id: 117,
+      email: "chief@unsc.gov",
+      username: "john-halo"
+    }
+  };
 
 const router = createBrowserRouter([
   {
@@ -56,11 +71,19 @@ const router = createBrowserRouter([
   }
 ]);
 
-function App() {
+// function App() {
+//   return (
+//     <>
+//       <RouterProvider router={router} />
+//     </>
+//   );
+// }
+
+function App(props) {
   return (
-    <>
+    <Provider config={rollbarConfig}>
       <RouterProvider router={router} />
-    </>
+    </Provider>
   );
 }
 

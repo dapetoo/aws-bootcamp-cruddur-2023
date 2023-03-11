@@ -104,6 +104,16 @@ def after_request(response):
 def rollbar_test():
     rollbar.report_message('Hello World!', 'warning')
     return "Hello World!"
+
+from flask import Request
+class CustomRequest(Request):
+    @property
+    def rollbar_person(self):
+        # 'id' is required, 'username' and 'email' are indexed but optional.
+        # all values are strings.
+        return {'id': '123', 'username': 'test', 'email': 'test@example.com'}
+
+app.request_class = CustomRequest
     
 @app.route("/api/message_groups", methods=['GET'])
 def data_message_groups():

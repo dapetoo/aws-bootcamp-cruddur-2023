@@ -36,7 +36,7 @@ const exporter = new OTLPTraceExporter({
   concurrencyLimit: 10,
   headers: {
     'Content-Type': 'application/json',
-    'x-honeycomb-team': '',
+    'x-honeycomb-team': 'h2Y71mOssPJM4QnlbeoSGD',
     'X-honeycomb-dataset': 'Cruddur-Browser',
   }
 });
