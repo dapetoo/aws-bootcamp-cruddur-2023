@@ -11,6 +11,7 @@ import { XMLHttpRequestInstrumentation } from '@opentelemetry/instrumentation-xm
 import { FetchInstrumentation } from '@opentelemetry/instrumentation-fetch';
 
 const { getWebAutoInstrumentations } = require('@opentelemetry/auto-instrumentations-web');
+const tracerProvider = new WebTracerProvider();
 
 // const HONEYCOMB_DATASET = '<DATA_SET>';
 // const HONEYCOMB_TEAM = '<API_KEY>';
@@ -24,11 +25,8 @@ const { getWebAutoInstrumentations } = require('@opentelemetry/auto-instrumentat
 //   },
 // });
 
-// const api = require("@opentelemetry/api");
-// function handleUser(user) {
-//  let activeSpan = api.trace.getSpan(api.context.active());
-//  activeSpan.setAttribute("user_id", user.getId());
-// }
+const tracer = provider.getTracer(serviceName);
+
 
 
 const exporter = new OTLPTraceExporter({
@@ -126,7 +124,6 @@ registerInstrumentations({
     }),
   ],
 });
-
 
 export default function TraceProvider({ children }) {
   return (
