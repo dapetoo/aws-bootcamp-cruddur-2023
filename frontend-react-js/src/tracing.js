@@ -11,7 +11,6 @@ import { XMLHttpRequestInstrumentation } from '@opentelemetry/instrumentation-xm
 import { FetchInstrumentation } from '@opentelemetry/instrumentation-fetch';
 
 const { getWebAutoInstrumentations } = require('@opentelemetry/auto-instrumentations-web');
-const tracerProvider = new WebTracerProvider();
 
 // const HONEYCOMB_DATASET = '<DATA_SET>';
 // const HONEYCOMB_TEAM = '<API_KEY>';
@@ -25,17 +24,13 @@ const tracerProvider = new WebTracerProvider();
 //   },
 // });
 
-const tracer = provider.getTracer(serviceName);
-
-
-
+// process.env.
 const exporter = new OTLPTraceExporter({
   url: 'https://api.honeycomb.io/v1/traces',
   concurrencyLimit: 10,
   headers: {
     'Content-Type': 'application/json',
     'x-honeycomb-team': 'h2Y71mOssPJM4QnlbeoSGD',
-    'X-honeycomb-dataset': 'Cruddur-Browser',
   }
 });
 

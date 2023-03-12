@@ -69,15 +69,12 @@ cognito_jwt_token = CognitoJwtToken(
 FlaskInstrumentor().instrument_app(app)
 RequestsInstrumentor().instrument()
 
-#X-Ray SDK Instrumentation
-xray_url = os.getenv("AWS_XRAY_URL")
-xray_recorder.configure(service='Cruddur', dynamic_naming=xray_url)
-XRayMiddleware(app, xray_recorder)
-
-frontend = os.getenv('FRONTEND_URL')
-backend = os.getenv('BACKEND_URL')
+#Cors error on Gitpod, the value is not being read. 
+# frontend = os.getenv('FRONTEND_URL')
+# backend = os.getenv('BACKEND_URL')
+frontend = "*"
+backend = "*"
 origins = [frontend, backend]
-
 cors = CORS(
   app, 
   resources={r"/api/*": {"origins": origins}},
@@ -85,6 +82,11 @@ cors = CORS(
   expose_headers='Authorization',
   methods="OPTIONS,GET,HEAD,POST"
 )
+
+#X-Ray SDK Instrumentation
+xray_url = os.getenv("AWS_XRAY_URL")
+xray_recorder.configure(service='Cruddur', dynamic_naming=xray_url)
+XRayMiddleware(app, xray_recorder)
 
 #Rollbar
 rollbar_access_token = os.getenv('ROLLBAR_ACCESS_TOKEN')
@@ -103,6 +105,13 @@ def init_rollbar():
 
     # send exceptions from `app` to rollbar, using flask's signal system.
     got_request_exception.connect(rollbar.contrib.flask.report_exception, app)
+
+def _build_cors_preflight_response():
+    response = make_response()
+    response.headers.add("Access-Control-Allow-Origin", "*")
+    response.headers.add('Access-Control-Allow-Headers', "*")
+    response.headers.add('Access-Control-Allow-Methods', "*")
+    return response
 
 #Cloudwatch Logs
 @app.after_request
@@ -182,7 +191,7 @@ def data_home():
 
 @app.route("/api/activities/notifications", methods=['GET'])
 def data_notifications():
-  data = NotificationActivities.run()
+  data = NotificationActivities.run() 
   return data, 200
   
 @app.route("/api/activities/@<string:handle>", methods=['GET'])
