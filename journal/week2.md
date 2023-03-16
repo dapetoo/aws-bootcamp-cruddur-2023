@@ -23,6 +23,23 @@ Honeycomb is a service that allows you to collect, query, and analyze events fro
 
 This refers to the process of collecting and analyzing data related to the behavior of web browsers. This data can be used to gain insights into how users interact with web applications, identify performance bottlenecks, and improve the overall user experience.
 
+Open telemetry package for opentelemetry and browser instrumentation
+
+```
+    "@opentelemetry/api": "^1.4.0",
+    "@opentelemetry/auto-instrumentations-web": "^0.31.2",
+    "@opentelemetry/context-zone": "^1.9.1",
+    "@opentelemetry/exporter-trace-otlp-http": "^0.35.1",
+    "@opentelemetry/instrumentation": "^0.35.1",
+    "@opentelemetry/instrumentation-document-load": "^0.31.2",
+    "@opentelemetry/instrumentation-fetch": "^0.35.1",
+    "@opentelemetry/instrumentation-http": "^0.35.1",
+    "@opentelemetry/instrumentation-long-task": "^0.32.2",
+    "@opentelemetry/instrumentation-user-interaction": "^0.32.1",
+    "@opentelemetry/instrumentation-xml-http-request": "^0.35.1",
+    "@opentelemetry/sdk-trace-web": "^1.9.1",
+```
+
 ![Honeycomb](journal_assets/week2/HoneycombBrowser.png)
 
 ![Honeycomb](journal_assets/week2/HoneycombBrowser02.png)
