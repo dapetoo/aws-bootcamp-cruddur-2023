@@ -1,9 +1,4 @@
-# Week 4 — Postgres and RDS
-
-## Create RDS using AWS CLI
-    
-```bash
-    aws rds create-db-instance \
+aws rds create-db-instance \
   --db-instance-identifier cruddur-db-instance \
   --db-instance-class db.t3.micro \
   --engine postgres \
@@ -21,5 +16,3 @@
   --enable-performance-insights \
   --performance-insights-retention-period 7 \
   --no-deletion-protection
-```
-
