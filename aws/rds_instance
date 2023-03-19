@@ -1,3 +1,5 @@
+#! /usr/bin/bash
+
 aws rds create-db-instance \
   --db-instance-identifier cruddur-db-instance \
   --db-instance-class db.t3.micro \
